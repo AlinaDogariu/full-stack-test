@@ -2,6 +2,7 @@ import cuid from 'cuid'
 import { loremIpsum } from 'lorem-ipsum'
 import { useState } from 'react'
 import { randomDate } from '../utilities/randomDate'
+import { persistPageView } from "../api"
 
 interface Pageview {
   id: string
@@ -41,6 +42,7 @@ export const usePageviewGenerator = () => {
       }
     }
 
+    persistPageView(event);
     setPageview(event)
   }
 
